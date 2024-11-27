@@ -35,7 +35,7 @@ class ImageUploadAPI(APIView):
     def post(self, request, *args, **kwargs):
         serializer = ImageSerializer(data=request.data)
         if serializer.is_valid():
-            image = serializer.save()  # Сохраняем изображение
+            image = serializer.save()
             return Response(
                 {
                     "message": "Изображение успешно загружено!",
