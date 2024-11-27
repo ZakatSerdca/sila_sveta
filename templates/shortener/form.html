@@ -1,0 +1,12 @@
+{% extends "shortener/base.html" %}
+
+{% block title %}Сократить ссылку{% endblock %}
+
+{% block content %}
+<h1>Сокращение ссылок</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Сократить</button>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "image_url/base.html" %}
+
+{% block title %}Список изображений{% endblock %}
+
+{% block content %}
+<h1>Список загруженных изображений</h1>
+<div class="table-responsive">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 40%;">Изображение</th>
+            <th style="width: 40%;">Постоянная ссылка</th>
+            <th style="width: 20%; text-align: center;">Дата загрузки</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for image in images %}
+        <tr>
+            <td><img src="{{ image.permanent_link }}" alt="Image" style="max-height: 100px;"></td>
+            <td><a href="{{ image.permanent_link }}" target="_blank">{{ image.permanent_link }}</a></td>
+            <td>{{ image.uploaded_at|date:"d.m.Y H:i" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

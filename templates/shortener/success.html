@@ -1,0 +1,12 @@
+{% extends "shortener/base.html" %}
+
+{% block title %}Ссылка сокращена{% endblock %}
+
+{% block content %}
+{% if reused %}
+<p>Эта ссылка уже короче некуда:</p>
+{% else %}
+<p>Ссылка успешно сокращена:</p>
+{% endif %}
+<a href="{{ short_url }}" target="_blank" class="btn btn-link">{{ short_url }}</a>
+{% endblock %}

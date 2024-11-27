@@ -1,0 +1,29 @@
+{% extends "shortener/base.html" %}
+
+{% block title %}Список всех ссылок{% endblock %}
+
+{% block content %}
+<h1>Список всех ссылок</h1>
+<div class="table-responsive">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 40%;">Оригинальная ссылка</th>
+            <th style="width: 40%;">Сокращенная ссылка</th>
+            <th style="width: 20%; text-align: center;">Дата создания</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for url in urls %}
+        <tr>
+            <td><a href="{{ url.original_url }}" target="_blank">{{ url.original_url }}</a></td>
+            <td><a href="{{ url.full_short_url }}" target="_blank">{{ url.full_short_url }}</a></td>
+            <td style="text-align: center;">{{ url.created_at|date:"d.m.Y H:i" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+
+{% endblock %}
